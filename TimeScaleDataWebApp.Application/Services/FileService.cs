@@ -6,14 +6,16 @@ namespace TimeScaleDataWebApp.Application.Services;
 
 public class FileService
 {
+    private string[] _lines = [];
+    
     public Values ParseFile(UploadFileModelRequest fileModel)
     {
         var value = new Values();
         using var reader = new StreamReader(fileModel.File.OpenReadStream());
         string content = reader.ReadToEnd();
         
-        var lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
-        foreach (var line in lines)
+        _lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in _lines)
         {
             var parts = line.Split(';');
 
@@ -40,10 +42,44 @@ public class FileService
         return value;
     }
 
-    public bool ValidateFile(UploadFileModelRequest fileModel)
+    public Values ValidateFile(UploadFileModelRequest fileModel)
     {
+        var startDate = new DateTime(2000, 1, 1);
         var value = ParseFile(fileModel);
+
+        if (value.Date < startDate || value.Date > DateTime.UtcNow)
+        {
+            throw new Exception("Введена некорректная дата.");
+        }
+
+        if (value.ExecutionTime < 0)
+        {
+            throw new Exception("Время выполнения не может быть меньше 0.");
+        }
+
+        if (value.Value < 0)
+        {
+            throw new Exception("Значение показателя не может быть меньше 0.");
+        }
+
+        if (_lines.Length < 1 || _lines.Length > 10000)
+        {
+            throw new Exception("Количество строк не может быть меньше 1 и больше 10 000.");
+        }
+
+        if (value.Date == null)
+        {
+            throw new Exception("В файле отсутствует время начала.");
+        }
+        if (value.ExecutionTime == null)
+        {
+            throw new Exception("В файле отсутствует время выполнения.");
+        }
+        if (value.Value == null)
+        {
+            throw new Exception("В файле отсутствует показатель.");
+        }
         
-        return true;
+        return value;
     }
 }

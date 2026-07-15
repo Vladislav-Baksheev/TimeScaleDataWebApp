@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TimeScaleDataWebApp.Application\TimeScaleDataWebApp.Application.csproj" />
+      <ProjectReference Include="..\TimeScaleDataWebApp.Infrastructure\TimeScaleDataWebApp.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

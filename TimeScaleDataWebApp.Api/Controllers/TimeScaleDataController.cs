@@ -13,7 +13,7 @@ public class TimeScaleDataController(FileService fileService) : ControllerBase
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> UploadFile([FromForm] UploadFileModelRequest fileModel)
     {
-        var parseFile = fileService.ParseFile(fileModel);
+        var parseFile=fileService.ValidateFile(fileModel);
         
         return Ok($"Файл: {parseFile.Date}, {parseFile.ExecutionTime}, {parseFile.Value} ");
     }
