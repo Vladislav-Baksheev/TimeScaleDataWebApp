@@ -1,0 +1,7 @@
+﻿services:
+  timescaledatawebapp:
+    image: timescaledatawebapp
+    build:
+      context: .
+      dockerfile: TimeScaleDataWebApp/Dockerfile
+

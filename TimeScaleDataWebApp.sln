@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Api", "TimeScaleDataWebApp.Api\TimeScaleDataWebApp.Api.csproj", "{58F98C11-6256-4684-8754-6ACD2DA42CFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC213A36-48F6-49A5-87D4-84D428AD3DC3}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Application", "TimeScaleDataWebApp.Application\TimeScaleDataWebApp.Application.csproj", "{DF283C45-245D-4018-8F1A-D754B0DCA3B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Infrastructure", "TimeScaleDataWebApp.Infrastructure\TimeScaleDataWebApp.Infrastructure.csproj", "{B6465E3C-ED19-41AF-B7CC-2408761A1104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Domain", "TimeScaleDataWebApp.Domain\TimeScaleDataWebApp.Domain.csproj", "{2A386445-BE33-43AA-838D-CA50CBEDA1CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BEA48513-7100-4787-AB75-F11E36B5CB78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2AB4E985-8899-41FE-ACF0-FF472A090A74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58F98C11-6256-4684-8754-6ACD2DA42CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F98C11-6256-4684-8754-6ACD2DA42CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F98C11-6256-4684-8754-6ACD2DA42CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F98C11-6256-4684-8754-6ACD2DA42CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF283C45-245D-4018-8F1A-D754B0DCA3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF283C45-245D-4018-8F1A-D754B0DCA3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF283C45-245D-4018-8F1A-D754B0DCA3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF283C45-245D-4018-8F1A-D754B0DCA3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6465E3C-ED19-41AF-B7CC-2408761A1104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6465E3C-ED19-41AF-B7CC-2408761A1104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6465E3C-ED19-41AF-B7CC-2408761A1104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6465E3C-ED19-41AF-B7CC-2408761A1104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58F98C11-6256-4684-8754-6ACD2DA42CFA} = {BEA48513-7100-4787-AB75-F11E36B5CB78}
+		{DF283C45-245D-4018-8F1A-D754B0DCA3B8} = {BEA48513-7100-4787-AB75-F11E36B5CB78}
+		{2A386445-BE33-43AA-838D-CA50CBEDA1CB} = {BEA48513-7100-4787-AB75-F11E36B5CB78}
+		{B6465E3C-ED19-41AF-B7CC-2408761A1104} = {BEA48513-7100-4787-AB75-F11E36B5CB78}
+	EndGlobalSection
+EndGlobal

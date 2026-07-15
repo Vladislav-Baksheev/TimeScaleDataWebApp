@@ -1,0 +1,12 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+*.dockerignore
+.idea/
+*.sln.iml
+*.user
+node_modules/
+dist/
+.env
