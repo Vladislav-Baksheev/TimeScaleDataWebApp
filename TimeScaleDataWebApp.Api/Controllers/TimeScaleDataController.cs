@@ -15,19 +15,9 @@ public class TimeScaleDataController(FileService fileService, ApplicationDbConte
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> UploadFile([FromForm] UploadFileModelRequest fileModel)
     {
-        var parseFile= fileService.ValidateFile(fileModel);
+        await fileService.ProcessFileAsync(fileModel);
 
-        try
-        {
-            dbContext.Values.Add(parseFile);
-            await dbContext.SaveChangesAsync();
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
-        
-        return Ok($"Файл: {parseFile.Date}, {parseFile.ExecutionTime}, {parseFile.Value}");
+        return Ok();
     }
 
     [HttpGet("get")]

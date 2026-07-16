@@ -33,7 +33,7 @@ public class ApplicationDbContext : DbContext
             
             entity.Property(e => e.AvgExecutionTime).HasColumnName("avg_execution_time");
             entity.Property(e => e.AvgValue).HasColumnName("avg_value");
-            entity.Property(e => e.DeltaSeconds).HasColumnName("delta_seconds");
+            entity.Property(e => e.DeltaTime).HasColumnName("delta_seconds");
             entity.Property(e => e.MaxValue).HasColumnName("max_value");
             entity.Property(e => e.MedianValue).HasColumnName("median_value");
             entity.Property(e => e.MinValue).HasColumnName("min_value");
