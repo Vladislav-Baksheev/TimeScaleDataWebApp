@@ -5,15 +5,8 @@ using TimeScaleDataWebApp.Infrastructure;
 
 namespace TimeScaleDataWebApp.Application.Services;
 
-public class FileService
+public class FileService(ApplicationDbContext context)
 {
-    private readonly ApplicationDbContext _context;
-
-    public FileService(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-    
     public async Task ProcessFileAsync(UploadFileModelRequest fileModel)
     {
         var records = ParseFile(fileModel);
@@ -25,15 +18,31 @@ public class FileService
         await SaveToDatabase(records, result, fileModel.File.FileName);
     }
 
-    private async Task SaveToDatabase(List<Values> records, Results result, string fileFileName)
+    private async Task SaveToDatabase(List<Values> records, Results result, string fileName)
     {
-        await using var transaction = await _context.Database.BeginTransactionAsync();
+        await using var transaction = await context.Database.BeginTransactionAsync();
 
         try
         {
+            var oldValues = context.Values
+                .Where(x => x.FileName == fileName);
+
+            context.Values.RemoveRange(oldValues);
+
+            var oldResults = context.Results
+                .Where(x => x.FileName == fileName);
+
+            context.Results.RemoveRange(oldResults);
+            
+            await context.SaveChangesAsync();
+            
+            result.FileName = fileName;
+            await context.Results.AddAsync(result);
+            
+            await context.Values.AddRangeAsync(records);
             
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync();
 
             await transaction.CommitAsync();
         }
@@ -157,7 +166,7 @@ public class FileService
                 throw new Exception($"Строка {i + 1}: некорректный формат даты.");
             }
 
-            if (!float.TryParse(
+            if (!double.TryParse(
                     parts[1].Trim().Replace(',', '.'),
                     NumberStyles.Float,
                     CultureInfo.InvariantCulture,
@@ -166,7 +175,7 @@ public class FileService
                 throw new Exception($"Строка {i + 1}: некорректное значение ExecutionTime.");
             }
 
-            if (!float.TryParse(
+            if (!double.TryParse(
                     parts[2].Trim().Replace(',', '.'),
                     NumberStyles.Float,
                     CultureInfo.InvariantCulture,
