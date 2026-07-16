@@ -24,7 +24,7 @@ public class FileService
                 if (DateTime.TryParseExact(parts[0].Trim(), "yyyy-MM-ddHH-mm-ss.fff", 
                         CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
                 {
-                    value.Date = date;
+                    value.Date = date.ToUniversalTime();
                 }
                 
                 if (float.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out float executionTime))

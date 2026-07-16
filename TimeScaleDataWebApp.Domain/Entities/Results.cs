@@ -2,6 +2,7 @@ namespace TimeScaleDataWebApp.Domain.Entities;
 
 public class Results
 {
+    public int Id { get; set; }
     public double DeltaSeconds { get; private set; }
     public DateTime StartDate { get; private set; }
     public double AvgExecutionTime { get; private set; }
