@@ -5,8 +5,9 @@ using TimeScaleDataWebApp.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddTransient<FileService>();
-builder.Services.AddTransient<FilterService>();
+builder.Services.AddScoped<FileService>();
+builder.Services.AddScoped<FilterService>();
+builder.Services.AddScoped<ValuesService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

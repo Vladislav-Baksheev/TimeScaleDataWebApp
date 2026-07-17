@@ -1,16 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 using TimeScaleDataWebApp.Application.DTO;
 using TimeScaleDataWebApp.Application.Services;
 using TimeScaleDataWebApp.Domain.Entities;
-using TimeScaleDataWebApp.Infrastructure;
 using Results = TimeScaleDataWebApp.Domain.Entities.Results;
 
 namespace TimeScaleDataWebApp.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class TimeScaleDataController(FileService fileService, FilterService filterService ,ApplicationDbContext dbContext) : ControllerBase
+public class TimeScaleDataController(FileService fileService, FilterService filterService, ValuesService valuesService) : ControllerBase
 {
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
@@ -25,5 +23,11 @@ public class TimeScaleDataController(FileService fileService, FilterService filt
     public async Task<List<Results>> GetResultsWithFilter([FromQuery] FilterRequest request)
     {
         return await filterService.GetResultsAsync(request);
+    }
+
+    [HttpGet("getSortedValues")]
+    public async Task<List<Values>> GetSortedValues([FromQuery] string fileName)
+    {
+        return await valuesService.GetSortedValues(fileName);
     }
 }
