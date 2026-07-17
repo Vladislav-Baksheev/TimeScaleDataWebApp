@@ -28,6 +28,6 @@ public class TimeScaleDataController(FileService fileService, FilterService filt
     [HttpGet("getSortedValues")]
     public async Task<List<Values>> GetSortedValues([FromQuery] string fileName)
     {
-        return await valuesService.GetSortedValues(fileName);
+        return await valuesService.GetSortedValuesAsync(fileName);
     }
 }

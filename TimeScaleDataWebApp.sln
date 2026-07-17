@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Domain"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BEA48513-7100-4787-AB75-F11E36B5CB78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2AB4E985-8899-41FE-ACF0-FF472A090A74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeScaleDataWebApp.Tests", "TimeScaleDataWebApp.Tests\TimeScaleDataWebApp.Tests.csproj", "{96EF7115-F831-4AFB-8E6F-DDE7F0CFBE8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +39,10 @@ Global
 		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A386445-BE33-43AA-838D-CA50CBEDA1CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EF7115-F831-4AFB-8E6F-DDE7F0CFBE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EF7115-F831-4AFB-8E6F-DDE7F0CFBE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EF7115-F831-4AFB-8E6F-DDE7F0CFBE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EF7115-F831-4AFB-8E6F-DDE7F0CFBE8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{58F98C11-6256-4684-8754-6ACD2DA42CFA} = {BEA48513-7100-4787-AB75-F11E36B5CB78}

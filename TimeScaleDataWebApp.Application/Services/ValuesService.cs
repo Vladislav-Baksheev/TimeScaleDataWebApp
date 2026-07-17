@@ -6,7 +6,7 @@ namespace TimeScaleDataWebApp.Application.Services;
 
 public class ValuesService (ApplicationDbContext context)
 {
-    public async Task<List<Values>> GetSortedValues(string fileName)
+    public async Task<List<Values>> GetSortedValuesAsync(string fileName)
     {
         return await context.Values
             .Where(x => x.FileName == fileName)
