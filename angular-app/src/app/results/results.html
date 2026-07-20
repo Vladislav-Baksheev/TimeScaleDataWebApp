@@ -1,0 +1,126 @@
+<h2>Фильтры</h2>
+
+
+<label>
+    Имя файла
+</label>
+
+<input
+    type="text"
+    [(ngModel)]="fileName"
+    placeholder="Введите имя файла">
+
+
+<br>
+
+
+<label>
+    Время запуска первой операции от
+</label>
+
+<input
+    type="datetime-local"
+    [(ngModel)]="dateFrom">
+
+
+<label>
+    до
+</label>
+
+<input
+    type="datetime-local"
+    [(ngModel)]="dateTo">
+
+
+<br>
+
+
+<label>
+    Средний показатель от
+</label>
+
+<input
+    type="number"
+    [(ngModel)]="avgValueFrom">
+
+
+<label>
+    до
+</label>
+
+<input
+    type="number"
+    [(ngModel)]="avgValueTo">
+
+
+<br>
+
+<label>
+    Среднее время выполнения от
+</label>
+
+<input
+    type="number"
+    [(ngModel)]="avgExecutionTimeFrom">
+
+
+<label>
+    до
+</label>
+
+<input
+    type="number"
+    [(ngModel)]="avgExecutionTimeTo">
+
+
+<br><br>
+
+
+<button (click)="search()">
+    Найти
+</button>
+
+@if (results().length > 0) {
+
+    <h3>Результаты:</h3>
+
+    @for (result of results(); track result.id) {
+
+        <div>
+            <p>
+                Файл: {{ result.fileName }}
+            </p>
+
+            <p>
+                Дата запуска: {{ result.startDate }}
+            </p>
+
+            <p>
+                Время запуска: {{ result.deltaTime }}
+            </p>
+
+            <p>
+                Среднее время выполнения: {{ result.avgExecutionTime }}
+            </p>
+
+            <p>
+                Среднее значение: {{ result.avgValue }}
+            </p>
+
+            <p>
+                Медиана: {{ result.medianValue }}
+            </p>
+
+            <p>
+                Минимальное значение: {{ result.minValue }}
+            </p>
+
+            <p>
+                Максимальное значение: {{ result.maxValue }}
+            </p>
+
+            <hr>
+
+        </div>
+    }
+}

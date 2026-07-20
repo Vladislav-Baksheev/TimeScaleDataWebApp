@@ -1,0 +1,13 @@
+<h2>Upload file</h2>
+
+<input 
+    type="file"
+    (change)="onFileSelected($event)">
+
+<button (click)="upload()">
+    Upload
+</button>
+
+<p>
+  uploadSuccess: {{ uploadSuccess() }}
+</p>

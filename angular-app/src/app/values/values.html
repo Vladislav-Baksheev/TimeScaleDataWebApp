@@ -1,0 +1,44 @@
+<h2>Получение данных файла</h2>
+
+<input
+    type="text"
+    [(ngModel)]="fileName"
+    placeholder="Введите имя файла">
+
+<button (click)="search()">
+    Найти
+</button>
+
+
+<hr>
+
+
+@if (values().length > 0) {
+
+    <h3>Результаты:</h3>
+
+    @for (value of values(); track $index) {
+
+        <div>
+            <p>
+                Файл: {{ value.fileName }}
+            </p>
+
+            <p>
+                Дата: {{ value.date }}
+            </p>
+
+            <p>
+                Время выполнения: {{ value.executionTime }}
+            </p>
+
+            <p>
+                Значение: {{ value.value }}
+            </p>
+
+            <hr>
+        </div>
+
+    }
+
+}
