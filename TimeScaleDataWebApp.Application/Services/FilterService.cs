@@ -9,6 +9,16 @@ public class FilterService (ApplicationDbContext context)
 {
     public async Task<List<Results>> GetResultsAsync(FilterRequest filter)
     {
+        if (filter.DateFrom.HasValue)
+        {
+            filter.DateFrom = filter.DateFrom.Value.ToUniversalTime();
+        }
+
+        if (filter.DateTo.HasValue)
+        {
+            filter.DateTo = filter.DateTo.Value.ToUniversalTime();
+        }
+        
         IQueryable<Results> query = context.Results;
 
         if (!string.IsNullOrWhiteSpace(filter.FileName))
