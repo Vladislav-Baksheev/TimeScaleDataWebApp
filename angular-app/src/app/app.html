@@ -1,9 +1,27 @@
-<h1>TimeScale Data</h1>
+<header>
+    <nav>
 
-<app-upload></app-upload>
+        <a routerLink="/upload">
+            Загрузка файла
+        </a>
 
-<hr>
 
-<app-values></app-values>
+        <a routerLink="/filter">
+            Данные файла
+        </a>
 
-<app-results></app-results>
+
+        <a routerLink="/values">
+            Результаты
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <router-outlet></router-outlet>
+
+</main>

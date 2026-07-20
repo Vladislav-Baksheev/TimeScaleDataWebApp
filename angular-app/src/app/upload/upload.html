@@ -1,6 +1,6 @@
 <h2>Upload file</h2>
 
-<input 
+<input
     type="file"
     (change)="onFileSelected($event)">
 
@@ -8,6 +8,8 @@
     Upload
 </button>
 
-<p>
-  uploadSuccess: {{ uploadSuccess() }}
-</p>
+@if(uploadSuccess()){
+  <p>
+    Файл успешно загружен!
+  </p>
+}

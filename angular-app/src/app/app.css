@@ -1,0 +1,49 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background: #f5f7fb;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background: white;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+    background: #f5f7fb;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    font-size: 24px;
+}
+
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+
+nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+nav a:hover {
+    color: #2563eb;
+}
+
+
+main {
+    padding: 40px;
+}
