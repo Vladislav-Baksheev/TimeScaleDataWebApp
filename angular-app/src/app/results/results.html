@@ -1,77 +1,81 @@
+<div class="card">
 <h2>Фильтры</h2>
 
-
-<label>
-    Имя файла
-</label>
-
-<input
-    type="text"
-    [(ngModel)]="fileName"
-    placeholder="Введите имя файла">
-
-
 <br>
 
+<div class="filter-row">
 
-<label>
-    Время запуска первой операции от
-</label>
+    <label>
+        Имя файла
+    </label>
 
-<input
-    type="datetime-local"
-    [(ngModel)]="dateFrom">
+    <input
+        type="text"
+        [(ngModel)]="fileName"
+        placeholder="Введите имя файла">
 
-
-<label>
-    до
-</label>
-
-<input
-    type="datetime-local"
-    [(ngModel)]="dateTo">
+</div>
 
 
-<br>
+<div class="filter-row">
 
+    <label>
+        Время запуска первой операции
+    </label>
 
-<label>
-    Средний показатель от
-</label>
+    <span>от</span>
 
-<input
-    type="number"
-    [(ngModel)]="avgValueFrom">
+    <input
+        type="datetime-local"
+        [(ngModel)]="dateFrom">
 
+    <span>до</span>
 
-<label>
-    до
-</label>
+    <input
+        type="datetime-local"
+        [(ngModel)]="dateTo">
 
-<input
-    type="number"
-    [(ngModel)]="avgValueTo">
+</div>
 
+<div class="filter-row">
 
-<br>
+    <label>
+        Средний показатель
+    </label>
 
-<label>
-    Среднее время выполнения от
-</label>
+    <span>от</span>
 
-<input
-    type="number"
-    [(ngModel)]="avgExecutionTimeFrom">
+    <input
+        type="number"
+        [(ngModel)]="avgValueFrom">
 
+    <span>до</span>
 
-<label>
-    до
-</label>
+    <input
+        type="number"
+        [(ngModel)]="avgValueTo">
 
-<input
-    type="number"
-    [(ngModel)]="avgExecutionTimeTo">
+</div>
 
+<div class="filter-row">
+
+    <label>
+        Среднее время выполнения
+    </label>
+
+    <span>от</span>
+
+    <input
+        type="number"
+        [(ngModel)]="avgExecutionTimeFrom">
+
+    <span>до</span>
+
+    <input
+        type="number"
+        [(ngModel)]="avgExecutionTimeTo">
+
+</div>
 
 <br><br>
 
@@ -84,43 +88,47 @@
 
     <h3>Результаты:</h3>
 
-    @for (result of results(); track result.id) {
+    <table>
 
-        <div>
-            <p>
-                Файл: {{ result.fileName }}
-            </p>
+      <thead>
 
-            <p>
-                Дата запуска: {{ result.startDate }}
-            </p>
+        <tr>
+        <th>Файл</th>
+        <th>Дата</th>
+        <th>Среднее время</th>
+        <th>Среднее значение</th>
+        <th>Мин</th>
+        <th>Макс</th>
+        </tr>
 
-            <p>
-                Время запуска: {{ result.deltaTime }}
-            </p>
+      </thead>
 
-            <p>
-                Среднее время выполнения: {{ result.avgExecutionTime }}
-            </p>
 
-            <p>
-                Среднее значение: {{ result.avgValue }}
-            </p>
+      <tbody>
 
-            <p>
-                Медиана: {{ result.medianValue }}
-            </p>
+        @for(result of results(); track result.id) {
 
-            <p>
-                Минимальное значение: {{ result.minValue }}
-            </p>
+          <tr>
 
-            <p>
-                Максимальное значение: {{ result.maxValue }}
-            </p>
+          <td>{{result.fileName}}</td>
 
-            <hr>
+          <td>{{result.startDate}}</td>
 
-        </div>
-    }
-}
+          <td>{{result.avgExecutionTime}}</td>
+
+          <td>{{result.avgValue}}</td>
+
+          <td>{{result.minValue}}</td>
+
+          <td>{{result.maxValue}}</td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+  }
+
+</div>

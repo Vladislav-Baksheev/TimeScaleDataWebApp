@@ -1,3 +1,5 @@
+<div class="card">
+
 <h2>Получение данных файла</h2>
 
 <input
@@ -9,36 +11,37 @@
     Найти
 </button>
 
-
 <hr>
 
-
 @if (values().length > 0) {
-
     <h3>Результаты:</h3>
 
-    @for (value of values(); track $index) {
 
-        <div>
-            <p>
-                Файл: {{ value.fileName }}
-            </p>
 
-            <p>
-                Дата: {{ value.date }}
-            </p>
+    <table>
 
-            <p>
-                Время выполнения: {{ value.executionTime }}
-            </p>
+    <thead>
 
-            <p>
-                Значение: {{ value.value }}
-            </p>
+      <tr>
+      <th>Файл</th>
+      <th>Дата</th>
+      <th>Время выполнения:</th>
+      <th>Значение:</th>
+      </tr>
 
-            <hr>
-        </div>
+    </thead>
+    <tbody>
+      @for(value of values(); track $index) {
+        <tr>
+        <td>{{ value.fileName }}</td>
+        <td>{{ value.date }}</td>
+        <td>{{ value.executionTime }}</td>
+        <td>{{ value.value }}</td>
+        </tr>
+      }
+    </tbody>
 
-    }
+  </table>
+  }
 
-}
+</div>

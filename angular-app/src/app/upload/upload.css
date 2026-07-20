@@ -1,0 +1,44 @@
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+
+h2 {
+    margin-top: 0;
+}
+
+
+label {
+    display: inline-block;
+    width: 220px;
+    margin-bottom: 15px;
+}
+
+
+input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+}
